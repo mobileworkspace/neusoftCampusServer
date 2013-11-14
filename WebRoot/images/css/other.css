@@ -1,0 +1,47 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/*逸香动态*/
+#news ul{list-style:none;}
+#news ul li{padding:10px; padding-right:0; border-bottom:1px dashed #999999;}
+/*文章*/
+.news_article h3{font-size:22px;border-bottom:1px solid #cacaa8;text-align:center;width:680px;margin:0 auto;padding:20px;}
+.news_article p{ width:680px; margin:0 auto;text-indent:2em; line-height:200%; padding:10px 0;}
+
+/*澳红酒业*/
+#products table{ margin-left:50px;}
+#products tr td{padding:0 0px; width:150px;text-align:center; border:1px solid #CCC;}
+#products tr td p{ padding:10px 0; border-top:1px dashed #CCC;}
+/*认证培训*/
+.course{border-bottom:1px dashed #CCC;padding:20px 0;}
+.cou-intro-left{float:left;width:160px;text-align:center;}
+.cou-intro-left img{ padding-bottom:5px;}
+.cou-intro-left span{color:#9a003c;margin-top:10px;}
+.cou-intro-right{float:right;width:520px;}
+.cou-intro-right input{ margin-top:10px; margin-right:10px;}
+.course-right{float:right;width:247px;margin-right:20px; margin-top:20px; display:inline;}
+.es-course{width:247px;height:223px;border:1px solid #cacac8;}
+.es-course h3{font-size:16px;margin:10px;color:#575a5d;}
+.es-course h3 span{color:#671835;margin-left:3px;}
+.es-course table{margin:0 auto;}
+.es-course table td{width:100px;height:20px;}
+/*品酒会*/
+.activity{float:left;width:475px;margin:20px 0 0 18px; display:inline;}
+.activity img{float:left;width:155px;height:98px;margin-right:15px;	}
+.activity p{margin:5px;}
+/*名师风采*/
+.teacher{width:325px;height:130px;float:left;background:#FFFFFF;display:inline;border:1px solid #d1d4d3;margin:20px 0px 0 5px;}
+.t-c-left{float:left;margin:12px 0 0 10px; display:inline;}
+.t-c-right{float:right;width:200px; margin-top:10px;}
+.t-c-right p{line-height:145%;}
+.teacher span{ float:left;margin:5px 0 0 10px; font-weight:normal;}
+.teacher span img{ float:left;margin-top:-2px;}
+/*在线报名*/
+#sign_up table{text-indent:1em;}
+#sign_up table td{font-size:14px;line-height:2em;padding-bottom:5px;}
+#sign_up table .td-big{font-size:16px;font-weight:bold;}
+/*关于我们*/
+.us h3{color:#933;font-size:18px;width:718px; margin:0 auto;border-bottom:2px solid #933;	}
+.us h3 span{font-size:24px;	}
+.us p{width:718px;margin:10px auto;font-size:14px;	text-indent:2em;line-height:200%;}
+.us img{ margin-left:30px;}
+.us .f{ float:left; width:230px;}

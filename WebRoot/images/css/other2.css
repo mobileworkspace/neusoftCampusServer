@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*产品介绍*/
+.pro-intro{ float:left; width:650px;}
+.left_picture{float:left;width:300px;text-align:center;background-color:#FFF;}
+.right_introduce{ float:left;width:295px; margin-left:40px;}
+.right_introduce h3{font-size:16px;}
+.right_introduce h3 span{float:left;font-size:12px;}
+.right_introduce table{ float:left;width:295px;margin:20px 0;}
+.right_introduce table tr td{border:1px solid #999;padding:5px;}
+.right_introduce table .color{background-color:#d6d6d4;}
+.taste{float:left;width:295px;border:1px solid #CCC;}
+.taste h3{font-size:14px;height:20px;padding:5px;border-bottom:1px solid #CCC;}
+.taste ul{float:left;width:50px;list-style:none;text-align:center;border-right:1px solid #CCC;}
+.taste ul li{margin-top:6px;}
+.review,.chateau_introduce{float:left;width:690px;border:1px solid #CCC;
+margin-top:20px;}
+.review h3,.chateau_introduce h3{border-bottom:1px solid #CCC;height:10px;padding:10px;background-color:#d6d6d4;}
+.review p,.chateau_introduce p{width:670px;line-height:200%;text-indent:2em;padding:10px 10px;}
+
+/*培训课程*/
+.course-introduce{font-size:0;}
+.course-introduce img{ display:block;}
+/*品酒会活动*/
+.activity-left{float:left;width:650px;border:0px solid #cacac8;padding:20px;}
+.a-c-t{float:left;width:650px;}
+#a-c-t-1 img{ float:left; margin-right:20px;}
+#a-c-t-1 p{margin-top:20px;}
+#a-c-t-2 h3{margin:20px 0;}
+#a-c-t-2 p{line-height:200%;text-indent:2em;font-size:14px;}
+/*名师介绍*/
+.teacher-left,.certificate,.zs,.introduce,.tc-pictures{float:left;}
+.teacher-left{width:690px;margin:20px 0 0 20px;}
+.certificate{margin-left:40px;}
+.zs{margin-left:20px;text-align:center;}
+.introduce{width:690px;margin-top:20px;}
+.introduce p{line-height:200%;text-indent:2em;}
+.tc-pictures{width:700px;margin-top:20px;border-top:1px solid #CCC;}
+.tc-pictures h3{font-size:16px;padding:20px 0;}
+.tc-pictures img{width:167px;height:115px;}
+.teacher-right{float:right;width:265px;margin-top:20px;margin-right:10px;}
+.honour-top{background:url(../images/teacher/honour-top.jpg);width:261px;height:24px;}
+.honour h3{margin-left:100px;font-size:16px;color:#868686;}
+.honour-main{background:url(../images/teacher/honour-main.jpg);width:261px;}
+.honour-bottom{background:url(../images/teacher/honour-bottom.jpg);width:261px;height:10px;}
+.honour-main p{width:230px;margin-left:15px;line-height:150%;border-bottom:1px dashed #CCC;padding:3px 0;}
+/*付款方式*/
+#pay{ width:780px;}
+#pay h3{color:#933;font-size:18px;width:758px; margin:0 auto;border-bottom:2px solid #933;	}
+#pay h3 span{font-size:24px;	}
+#pay p{width:718px;margin:10px auto;font-size:14px;line-height:200%;}
