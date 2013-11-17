@@ -163,7 +163,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<input type="button" id="button2" onClick="hideFileUpload()" style="display:none;" value="不插入图片"/>
 	  		</s:if>
 	  		<s:else>
-	  			<img src="<%=basePath%>${tpicture}" name="abc" onmouseover="big(0)" onmouseout="small(0)" width="100" id="image" title="点击更换图片！" onclick="showFileUpload()"/>
+	  			<img src="<%=basePath%>${tpicture}" name="abc" width="100" id="image" title="点击更换图片！" onclick="showFileUpload()"/>
 	  			<input type="file" name="photoFile.photo" id="file" style="display:none;" size="30" onClick="a_introduceImage()" onBlur="c_introduceImage()" />
 				<input type="button" id="button" onClick="resetFile()" style="display:none;" value="取消"/>
 				<input type="button" id="button2" onClick="hideFileUpload()" style="display:none;" value="返回图片"/>
@@ -175,7 +175,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							photoNoDelete.value = null;
 						}else{
 							var pk = image.src;
-							var pkValue = pk.substring(pk.lastIndexOf("/")+1, pk.length);
+							var pkValue = pk.substring(pk.lastIndexOf("/uploadFile")+1, pk.length);
 							photoNoDelete.value = pkValue ;
 						}
 					}

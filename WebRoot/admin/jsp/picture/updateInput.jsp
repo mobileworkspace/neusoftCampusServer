@@ -163,7 +163,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							photoNoDelete.value = null;
 						}else{
 							var pk = image.src;
-							var pkValue = pk.substring(pk.lastIndexOf("/")+1, pk.length);
+							var pkValue = pk.substring(pk.lastIndexOf("/uploadFile")+1, pk.length);
 							photoNoDelete.value = pkValue ;
 						}
 					}

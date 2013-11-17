@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				return false;
 			}
 			if (confirm("确定删除?")) {
-				testForm.action = "article_checkboxDelete.action";
+				testForm.action = "picture_checkboxDelete.action";
 				testForm.submit();
 			}
 	
@@ -119,6 +119,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </tr>
                     <tr>
                         <td bgcolor="#EEEEEE" align="center" width="5%">选择</td>
+                        <td bgcolor="#EEEEEE" align="center" width="7%">图片ID</td>
                         <td bgcolor="#EEEEEE" align="center" width="35%">图片标题</td>
                         <td bgcolor="#EEEEEE" align="center" width="10%">图片作者</td>
                         <td bgcolor="#EEEEEE" align="center" width="8%">分类栏目</td>
@@ -132,6 +133,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td bgcolor="#FFFFFF">
 								<input type="checkbox" name="delid"  value="<s:property value="id" />"/>
 	 						</td>
+	 						<td bgcolor="#FFFFFF">
+								<a href="picture_check.action?id=${id}">${id}</a>
+							</td>
 							<td bgcolor="#FFFFFF">
 								<a href="picture_check.action?id=${id}">${title}</a>
 							</td>

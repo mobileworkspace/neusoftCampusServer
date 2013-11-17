@@ -34,15 +34,23 @@ public class PictureAction extends ActionSupport implements ModelDriven<Picture>
 	private String photoNoDelete;	//从服务器传来判断是否删除了图片
 	
 	/**
-	 * 分页查询
+	 * 列表分页查询
 	 */
 	public String list(){
 		ActionContext.getContext().put("pages", this.pictureService.findPicture());
 		return SUCCESS;
 	}
+	
+	/**
+	 * 分页浏览图片
+	 */
+	public String showlist(){
+		ActionContext.getContext().put("pages", this.pictureService.findPicture());
+		return SUCCESS;
+	}
 
 	/**
-	 * 分类分页查询
+	 * 分类分页列表
 	 */
 	public String listCid(){
 		String cid=picture.getCategoryid();
@@ -56,6 +64,55 @@ public class PictureAction extends ActionSupport implements ModelDriven<Picture>
 			return SUCCESS;
 		}
 		
+	}
+	
+	/**
+	 * 分类1分页列表
+	 */
+	public String listCid1(){
+		ActionContext.getContext().put("pages", this.pictureService.findPicture("1"));
+			return "Categoryid01";
+	}
+	
+	/**
+	 * 分类2分页列表
+	 */
+	public String listCid2(){
+		ActionContext.getContext().put("pages", this.pictureService.findPicture("2"));
+			return "Categoryid02";
+	}
+	
+	/**
+	 * 分类浏览图片
+	 */
+	public String showlistCid(){
+		String cid=picture.getCategoryid();
+		ActionContext.getContext().put("pages", this.pictureService.findPicture(cid));
+		int i=Integer.valueOf(cid).intValue();
+		if(i==1){
+			return "showCategoryid01";
+		}else if(i==2){
+			return "showCategoryid02";
+		}else{
+			return SUCCESS;
+		}
+		
+	}
+	
+	/**
+	 * 分类2浏览图片
+	 */
+	public String showlistCid1(){
+		ActionContext.getContext().put("pages", this.pictureService.findPicture("1"));
+			return "showCategoryid01";
+	}
+	
+	/**
+	 * 分类2浏览图片
+	 */
+	public String showlistCid2(){
+		ActionContext.getContext().put("pages", this.pictureService.findPicture("2"));
+		return "showCategoryid02";
 	}
 	
 	/**
@@ -75,9 +132,10 @@ public class PictureAction extends ActionSupport implements ModelDriven<Picture>
 			return ActionUtil.REDIRECT;
 		}
 		Calendar calendar = Calendar.getInstance();
-		String timestamp = calendar.get(Calendar.YEAR) + "/" + calendar.get(Calendar.MONTH);
+		String timestamp = calendar.get(Calendar.YEAR) + "/" + (calendar.get(Calendar.MONTH)+1);
 		
 		String uploadUrl2="uploadFile/picture/" + "upload/" + timestamp+"/";
+		
 		String uploadUrl = ServletActionContext.getServletContext().getRealPath("/") + uploadUrl2;
 		
 		File fl=new File(uploadUrl);
@@ -101,7 +159,7 @@ public class PictureAction extends ActionSupport implements ModelDriven<Picture>
 			
 		
 		Calendar calendar = Calendar.getInstance();
-		String timestamp = calendar.get(Calendar.YEAR) + "/" + calendar.get(Calendar.MONTH);
+		String timestamp = calendar.get(Calendar.YEAR) + "/" + (calendar.get(Calendar.MONTH)+1);
 		
 		String uploadUrl2="uploadFile/picture/" + "upload/" + timestamp+"/";
 		String uploadUrl = ServletActionContext.getServletContext().getRealPath("/") + uploadUrl2;
@@ -129,7 +187,7 @@ public class PictureAction extends ActionSupport implements ModelDriven<Picture>
 	}
 	
 	/**
-	 * 删除一条数据
+	 * 删除一组数据
 	 */
 	public String checkboxDelete(){
 		this.pictureService.deleteGroupPicture(delid);
@@ -168,10 +226,12 @@ public class PictureAction extends ActionSupport implements ModelDriven<Picture>
 			ActionUtil.setURL("picture_list.action");
 			return ActionUtil.REDIRECT;
 		}
+		
 		Calendar calendar = Calendar.getInstance();
-		String timestamp = calendar.get(Calendar.YEAR) + "/" + calendar.get(Calendar.MONTH);
+		String timestamp = calendar.get(Calendar.YEAR) + "/" + (calendar.get(Calendar.MONTH)+1);
 		
 		String uploadUrl2="uploadFile/picture/" + "upload/" + timestamp+"/";
+		System.out.println(uploadUrl2);
 		String uploadUrl = ServletActionContext.getServletContext().getRealPath("/") + uploadUrl2;
 		
 		File fl=new File(uploadUrl);

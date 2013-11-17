@@ -20,6 +20,7 @@ public class FileUpLoadUtil {
 		return UUID.randomUUID().toString() + "." + getFileExt(oldName);
 	}
 	
+	@SuppressWarnings("resource")
 	public static void UploadFile(String filePath, File file){
 		try {
 			InputStream input = new FileInputStream(file);

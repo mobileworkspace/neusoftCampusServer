@@ -89,9 +89,16 @@ public interface ArticleService {
 	Pager<Article> findArticle(String categoryid);
 	
 	/**
-	 * 分类分页查询
+	 * 分类分页查询有图的文章的前5条
 	 * @param categoryid 分类ID
 	 * @return 返回Pager<Article>对象
 	 */
 	Pager<Article> findArticleNoNull();
+	
+	/**
+	 * 分类分页查询有图的文章
+	 * @param categoryid 分类ID
+	 * @return 返回Pager<Article>对象
+	 */
+	Pager<Article> findArticlePictureNoNull(String categoryid);
 }

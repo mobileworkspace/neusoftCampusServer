@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 判断如果没有登陆不能进入后台界面
- * @author hugo
- * @data 2013-9-4
+ * @author wjrong
+ * @data 2013-10-23
  *
  */
 public class AdminFilter implements Filter {

@@ -33,19 +33,32 @@
 
 		<action name="*_*" class="{1}Action" method="{2}">
 			<result name="success">admin/jsp/{1}/{2}.jsp</result>
-			<result name="Categoryid01">admin/jsp/{1}/{2}/listcid01.jsp</result>
-			<result name="Categoryid02">admin/jsp/{1}/{2}/listcid02.jsp</result>
-			<result name="Categoryid03">admin/jsp/{1}/{2}/listcid03.jsp</result>
-			<result name="Categoryid04">admin/jsp/{1}/{2}/listcid04.jsp</result>
-			<result name="Categoryid05">admin/jsp/{1}/{2}/listcid05.jsp</result>
-			<result name="Categoryid06">admin/jsp/{1}/{2}/listcid06.jsp</result>
-			<result name="Categoryid07">admin/jsp/{1}/{2}/listcid07.jsp</result>
-			<result name="Categoryid08">admin/jsp/{1}/{2}/listcid08.jsp</result>
-			<result name="Categoryid09">admin/jsp/{1}/{2}/listcid09.jsp</result>
-			<result name="Categoryid10">admin/jsp/{1}/{2}/listcid10.jsp</result>
-			<result name="Categoryid11">admin/jsp/{1}/{2}/listcid11.jsp</result>
-			<result name="Categoryid12">admin/jsp/{1}/{2}/listcid12.jsp</result>
-			<result name="Categoryid13">admin/jsp/{1}/{2}/listcid13.jsp</result>
+			<result name="Categoryid01">admin/jsp/{1}/listCid/listcid01.jsp</result>
+			<result name="Categoryid02">admin/jsp/{1}/listCid/listcid02.jsp</result>
+			<result name="Categoryid03">admin/jsp/{1}/listCid/listcid03.jsp</result>
+			<result name="Categoryid04">admin/jsp/{1}/listCid/listcid04.jsp</result>
+			<result name="Categoryid05">admin/jsp/{1}/listCid/listcid05.jsp</result>
+			<result name="Categoryid06">admin/jsp/{1}/listCid/listcid06.jsp</result>
+			<result name="Categoryid07">admin/jsp/{1}/listCid/listcid07.jsp</result>
+			<result name="Categoryid08">admin/jsp/{1}/listCid/listcid08.jsp</result>
+			<result name="Categoryid09">admin/jsp/{1}/listCid/listcid09.jsp</result>
+			<result name="Categoryid10">admin/jsp/{1}/listCid/listcid10.jsp</result>
+			<result name="Categoryid11">admin/jsp/{1}/listCid/listcid11.jsp</result>
+			<result name="Categoryid12">admin/jsp/{1}/listCid/listcid12.jsp</result>
+			
+			<result name="showCategoryid01">admin/jsp/{1}/showlistCid/showlistcid01.jsp</result>
+			<result name="showCategoryid02">admin/jsp/{1}/showlistCid/showlistcid02.jsp</result>
+			<result name="showCategoryid03">admin/jsp/{1}/showlistCid/showlistcid03.jsp</result>
+			<result name="showCategoryid04">admin/jsp/{1}/showlistCid/showlistcid04.jsp</result>
+			<result name="showCategoryid05">admin/jsp/{1}/showlistCid/showlistcid05.jsp</result>
+			<result name="showCategoryid06">admin/jsp/{1}/showlistCid/showlistcid06.jsp</result>
+			<result name="showCategoryid07">admin/jsp/{1}/showlistCid/showlistcid07.jsp</result>
+			<result name="showCategoryid08">admin/jsp/{1}/showlistCid/showlistcid08.jsp</result>
+			<result name="showCategoryid09">admin/jsp/{1}/showlistCid/showlistcid09.jsp</result>
+			<result name="showCategoryid10">admin/jsp/{1}/showlistCid/showlistcid10.jsp</result>
+			<result name="showCategoryid11">admin/jsp/{1}/showlistCid/showlistcid11.jsp</result>
+			<result name="showCategoryid12">admin/jsp/{1}/showlistCid/showlistcid12.jsp</result>
+
 			
 			<result name="input">admin/jsp/{1}/{2}Input.jsp</result>
 			<result type="redirect" name="redirect">${url}</result>

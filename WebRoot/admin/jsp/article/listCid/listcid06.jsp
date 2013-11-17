@@ -161,7 +161,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		<tr>
   			<td align="center">
   				<jsp:include page="/pager/pager.jsp">
-					<jsp:param value="article_list.action" name="url" />
+					<jsp:param value="article_listCid6.action" name="url" />
 					<jsp:param value="${pages.totalRecord}" name="items" />
 					<jsp:param value="${pages.pageSize}" name="pageSize" />
 					<jsp:param value="id" name="params" /> 

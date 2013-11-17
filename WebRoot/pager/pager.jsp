@@ -7,6 +7,7 @@
 <c:forEach items="${param.params }" var="p">
 	<pg:param name="${p}"/>
 </c:forEach>
+
 共有${param.items}条，
 <pg:last>
 共有${pageNumber }页,

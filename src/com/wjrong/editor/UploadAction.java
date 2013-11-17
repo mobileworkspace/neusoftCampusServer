@@ -21,7 +21,7 @@ public class UploadAction extends BaseAction{
 	public void uploadImg(){
 		try {
 			Calendar calendar = Calendar.getInstance();
-			String timestamp = calendar.get(Calendar.YEAR) + "/" + calendar.get(Calendar.MONTH);
+			String timestamp = calendar.get(Calendar.YEAR) + "/" + (calendar.get(Calendar.MONTH)+1);
 			SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMdd_HHmmss");
 			Random r=new Random();
 			String path=ServletActionContext.getServletContext().getRealPath("/");

@@ -119,6 +119,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </tr>
                     <tr>
                         <td bgcolor="#EEEEEE" align="center" width="5%">选择</td>
+                        <td bgcolor="#EEEEEE" align="center" width="7%">图片ID</td>
                         <td bgcolor="#EEEEEE" align="center" width="35%">图片标题</td>
                         <td bgcolor="#EEEEEE" align="center" width="10%">图片作者</td>
                         <td bgcolor="#EEEEEE" align="center" width="8%">分类栏目</td>
@@ -132,6 +133,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td bgcolor="#FFFFFF">
 								<input type="checkbox" name="delid"  value="<s:property value="id" />"/>
 	 						</td>
+	 						<td bgcolor="#FFFFFF">
+								<a href="picture_check.action?id=${id}">${id}</a>
+							</td>
 							<td bgcolor="#FFFFFF">
 								<a href="picture_check.action?id=${id}">${title}</a>
 							</td>
@@ -161,7 +165,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		<tr>
   			<td align="center">
   				<jsp:include page="/pager/pager.jsp">
-					<jsp:param value="picture_list.action" name="url" />
+					<jsp:param value="picture_listCid1.action" name="url" />
+					
 					<jsp:param value="${pages.totalRecord}" name="items" />
 					<jsp:param value="${pages.pageSize}" name="pageSize" />
 					<jsp:param value="id" name="params" /> 

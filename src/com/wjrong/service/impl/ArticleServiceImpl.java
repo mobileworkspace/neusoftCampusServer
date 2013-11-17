@@ -141,4 +141,14 @@ public class ArticleServiceImpl implements ArticleService {
 		}
 		return listArticle;
 	}
+	
+	
+	@Override
+	public Pager<Article> findArticlePictureNoNull(String categoryid) {
+		if("All".equals(categoryid)){
+		return this.articleDao.find("from Article n where n.tpicture IS NOT NULL ORDER BY n.createDate DESC");
+		}
+		
+		return this.articleDao.find("from Article n where n.categoryid="+categoryid+" AND n.tpicture IS NOT NULL ORDER BY n.createDate DESC");
+	}
 }

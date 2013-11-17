@@ -18,7 +18,7 @@ import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
 
 
-@SuppressWarnings({ "serial", "restriction" })
+@SuppressWarnings({ "serial" })
 public class RandCode extends HttpServlet {
 
 	protected Color getRandColor(int fc, int bc) {

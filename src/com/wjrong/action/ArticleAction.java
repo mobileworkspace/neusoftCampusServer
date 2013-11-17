@@ -78,6 +78,271 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		
 	}
 	
+	
+	/**
+	 * 分类1分页查询
+	 */
+	public String listCid1(){
+
+		ActionContext.getContext().put("pages", this.articleService.findArticle("1"));
+		
+			return "Categoryid01";
+		}
+	
+	
+	/**
+	 * 分类2分页查询
+	 */
+	public String listCid2(){
+
+		ActionContext.getContext().put("pages", this.articleService.findArticle("2"));
+		
+			return "Categoryid02";
+		}
+	
+	
+	/**
+	 * 分类3分页查询
+	 */
+	public String listCid3(){
+
+		ActionContext.getContext().put("pages", this.articleService.findArticle("3"));
+		
+			return "Categoryid03";
+		}
+	
+	/**
+	 * 分类4分页查询
+	 */
+	public String listCid4(){
+
+		ActionContext.getContext().put("pages", this.articleService.findArticle("4"));
+		
+			return "Categoryid04";
+		}
+	
+	/**
+	 * 分类5分页查询
+	 */
+	public String listCid5(){
+
+		ActionContext.getContext().put("pages", this.articleService.findArticle("5"));
+		
+			return "Categoryid05";
+		}
+	
+	/**
+	 * 分类6分页查询
+	 */
+	public String listCid6(){
+
+		ActionContext.getContext().put("pages", this.articleService.findArticle("6"));
+		
+			return "Categoryid06";
+		}
+	
+	/**
+	 * 分类7分页查询
+	 */
+	public String listCid7(){
+
+		ActionContext.getContext().put("pages", this.articleService.findArticle("7"));
+		
+			return "Categoryid07";
+		}
+	
+	/**
+	 * 分类8分页查询
+	 */
+	public String listCid8(){
+
+		ActionContext.getContext().put("pages", this.articleService.findArticle("8"));
+		
+			return "Categoryid08";
+		}
+	
+	/**
+	 * 分类9分页查询
+	 */
+	public String listCid9(){
+
+		ActionContext.getContext().put("pages", this.articleService.findArticle("9"));
+		
+			return "Categoryid09";
+		}
+	
+	/**
+	 * 分类10分页查询
+	 */
+	public String listCid10(){
+
+		ActionContext.getContext().put("pages", this.articleService.findArticle("10"));
+		
+			return "Categoryid10";
+		}
+
+	/**
+	 * 分类11分页查询
+	 */
+	public String listCid11(){
+
+		ActionContext.getContext().put("pages", this.articleService.findArticle("11"));
+		
+			return "Categoryid11";
+		}
+	
+	/**
+	 * 分类12分页查询
+	 */
+	public String listCid12(){
+
+		ActionContext.getContext().put("pages", this.articleService.findArticle("12"));
+		
+			return "Categoryid12";
+		}
+	
+	/**
+	 * 分页查询全部有图文章
+	 */
+	public String showlist(){
+		ActionContext.getContext().put("pages", this.articleService.findArticlePictureNoNull("All"));
+		return SUCCESS;
+	}
+		
+	/**
+	 * 分类分页查询有图文章
+	 */
+	public String showlistCid(){
+		String cid=article.getCategoryid();
+		ActionContext.getContext().put("pages", this.articleService.findArticlePictureNoNull(cid));
+		int i=Integer.valueOf(cid).intValue();
+		if(i==1){
+			return "showCategoryid01";
+		}else if(i==2){
+			return "showCategoryid02";
+		}else if(i==3){
+			return "showCategoryid03";
+		}else if(i==4){
+			return "showCategoryid04";
+		}else if(i==5){
+			return "showCategoryid05";
+		}else if(i==6){
+			return "showCategoryid06";
+		}else if(i==7){
+			return "showCategoryid07";
+		}else if(i==8){
+			return "showCategoryid08";
+		}else if(i==9){
+			return "showCategoryid09";
+		}else if(i==10){
+			return "showCategoryid10";
+		}else if(i==11){
+			return "showCategoryid11";
+		}else if(i==12){
+			return "showCategoryid12";
+		}else if(i==13){
+			return SUCCESS;
+		}
+		return SUCCESS;
+	}
+	
+	/**
+	 * 分类1分页查询有图文章
+	 */
+	public String showlistCid1(){
+		ActionContext.getContext().put("pages", this.articleService.findArticlePictureNoNull("1"));
+		return "showCategoryid01";
+	}
+	
+	/**
+	 * 分类2分页查询有图文章
+	 */
+	public String showlistCid2(){
+		ActionContext.getContext().put("pages", this.articleService.findArticlePictureNoNull("2"));
+		return "showCategoryid02";
+	}
+	
+	/**
+	 * 分类3分页查询有图文章
+	 */
+	public String showlistCid3(){
+		ActionContext.getContext().put("pages", this.articleService.findArticlePictureNoNull("3"));
+		return "showCategoryid03";
+	}
+	
+	/**
+	 * 分类4分页查询有图文章
+	 */
+	public String showlistCid4(){
+		ActionContext.getContext().put("pages", this.articleService.findArticlePictureNoNull("4"));
+		return "showCategoryid04";
+	}
+	
+	/**
+	 * 分类5分页查询有图文章
+	 */
+	public String showlistCid5(){
+		ActionContext.getContext().put("pages", this.articleService.findArticlePictureNoNull("5"));
+		return "showCategoryid05";
+	}
+	
+	/**
+	 * 分类6分页查询有图文章
+	 */
+	public String showlistCid6(){
+		ActionContext.getContext().put("pages", this.articleService.findArticlePictureNoNull("6"));
+		return "showCategoryid06";
+	}
+	
+	/**
+	 * 分类7分页查询有图文章
+	 */
+	public String showlistCid7(){
+		ActionContext.getContext().put("pages", this.articleService.findArticlePictureNoNull("7"));
+		return "showCategoryid0";
+	}
+	
+	/**
+	 * 分类8分页查询有图文章
+	 */
+	public String showlistCid8(){
+		ActionContext.getContext().put("pages", this.articleService.findArticlePictureNoNull("8"));
+		return "showCategoryid08";
+	}
+	
+	/**
+	 * 分类9分页查询有图文章
+	 */
+	public String showlistCid9(){
+		ActionContext.getContext().put("pages", this.articleService.findArticlePictureNoNull("9"));
+		return "showCategoryid09";
+	}
+	
+	/**
+	 * 分类10分页查询有图文章
+	 */
+	public String showlistCid10(){
+		ActionContext.getContext().put("pages", this.articleService.findArticlePictureNoNull("10"));
+		return "showCategoryid10";
+	}
+	
+	/**
+	 * 分类11分页查询有图文章
+	 */
+	public String showlistCid11(){
+		ActionContext.getContext().put("pages", this.articleService.findArticlePictureNoNull("11"));
+		return "showCategoryid11";
+	}
+	
+	
+	/**
+	 * 分类12分页查询有图文章
+	 */
+	public String showlistCid12(){
+		ActionContext.getContext().put("pages", this.articleService.findArticlePictureNoNull("12"));
+		return "showCategoryid12";
+	}
+	
 	/**
 	 * 进入添加页面
 	 */
@@ -95,7 +360,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 			return ActionUtil.REDIRECT;
 		}
 		Calendar calendar = Calendar.getInstance();
-		String timestamp = calendar.get(Calendar.YEAR) + "/" + calendar.get(Calendar.MONTH);
+		String timestamp = calendar.get(Calendar.YEAR) + "/" + (calendar.get(Calendar.MONTH)+1);
 		
 		String uploadUrl2="uploadFile/article/" + "upload/" + timestamp+"/";
 		String uploadUrl = ServletActionContext.getServletContext().getRealPath("/") + uploadUrl2;
@@ -164,7 +429,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 			return ActionUtil.REDIRECT;
 		}
 		Calendar calendar = Calendar.getInstance();
-		String timestamp = calendar.get(Calendar.YEAR) + "/" + calendar.get(Calendar.MONTH);
+		String timestamp = calendar.get(Calendar.YEAR) + "/" + (calendar.get(Calendar.MONTH)+1);
 		
 		String uploadUrl2="uploadFile/article/" + "upload/" + timestamp+"/";
 		String uploadUrl = ServletActionContext.getServletContext().getRealPath("/") + uploadUrl2;

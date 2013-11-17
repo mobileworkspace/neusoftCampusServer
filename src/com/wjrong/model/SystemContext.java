@@ -10,7 +10,8 @@ package com.wjrong.model;
 public class SystemContext {  
     //定义两个threadLocal变量：offSet和pageSize  
     private static ThreadLocal<Integer> offSet = new ThreadLocal<Integer>();  
-    private static ThreadLocal<Integer> pageSize = new ThreadLocal<Integer>();  
+    private static ThreadLocal<Integer> pageSize = new ThreadLocal<Integer>();
+    private static ThreadLocal<Integer> categoryid = new ThreadLocal<Integer>();
     /* 
      * offset ：get、set、remove 
      */  
@@ -43,4 +44,20 @@ public class SystemContext {
     public static void removePageSize(){  
         pageSize.remove();  
     }  
+    /* 
+     * categoryid ：get、set、remove 
+     */  
+    public static int getcategoryid() {  
+        Integer os =categoryid.get();  
+        if (os == null) {  
+            return 0;  
+        }  
+        return os;  
+    }  
+    public static void setcategoryid(int categoryidValue) {  
+    	categoryid.set(categoryidValue);  
+    }  
+    public static void removecategoryid(){  
+        offSet.remove();  
+    }
 }  

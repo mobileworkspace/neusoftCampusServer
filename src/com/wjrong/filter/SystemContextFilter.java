@@ -30,6 +30,7 @@ public class SystemContextFilter implements Filter  {
 		try {
 	
 			int pageOffset = 0;	//现在的位置
+			int categoryid =1;//分类ID
 			
 			try {
 				String ps =request.getParameter("pageSize");
@@ -51,11 +52,22 @@ public class SystemContextFilter implements Filter  {
 					pageOffset =Integer.parseInt(pageOff);  
 	            }
 				
+				String category = request.getParameter("categoryid");
+				if(category==null || category.length() <= 0){
+					//判断category是否整数， true-整数  false-非整数
+					if (NumberUtils.isDigits(category)) {
+						
+						categoryid =Integer.parseInt(category);  
+		            }
+
+				}
+				
+				
 			} catch (NumberFormatException e) {}
 			
 				SystemContext.setOffSet(pageOffset);
 				SystemContext.setPageSize(pageSize);
-			
+				SystemContext.setcategoryid(categoryid);
 				filter.doFilter(request, response);
 			}
 		//使用完Threadlocal，将其删除。使用finally确保一定将其删除  
@@ -64,6 +76,8 @@ public class SystemContextFilter implements Filter  {
 			SystemContext.removeOffSet();
 			SystemContext.removePageSize();
 			pageSize=10;
+			SystemContext.removecategoryid();
+			
 		}
 	}
 
