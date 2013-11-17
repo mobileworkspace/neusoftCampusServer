@@ -51,7 +51,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                        <table align="center" width="420" border=0>
 		                          <tr>
 		                            <td width="19%">用户名：</td>
-		                            <td colspan="2"><input name="username" id="username" size="20" onBlur="q_username()" maxLength="11">
+		                            <td colspan="2">
+		                            
+		                            <s:if test="#session.userlogin.type == 0">
+					  				<input name="username" id="username" size="20" onBlur="q_username()" maxLength="11">
+					  			</s:if>
+					  			<s:else>
+					  				<input name="username" readonly value="<s:property value="#session.userlogin.username"/>" id="username"  size="20" onBlur="q_username()" maxLength="11">
+					  			</s:else>
+		                            
+		                            
+		                            
 		                            <span id="s_username" class="login_txt"></span>
 		                            </td>
 		                          </tr>

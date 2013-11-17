@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="s" uri="/struts-tags" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -155,9 +156,16 @@
           </tr>
         </table>
         <ul class="MM">
+        
+  		<s:if test="#session.userlogin.type == 0">
           <li><a href="login_addInput.action" target="main">增加账号</a></li>
 		  <li><a href="login_list.action" target="main">账号列表</a></li>
 		  <li><a href="<%=basePath %>admin/jsp/login/updateInput.jsp" target="main">修改密码</a></li>
+		</s:if>
+		<s:else>
+		  <li><a href="<%=basePath %>admin/jsp/login/updateInput.jsp" target="main">修改密码</a></li>
+ 		</s:else>
+
         </ul>
       </div>
       <h1 class="type"><a href="javascript:void(0)">全部文章</a></h1>
