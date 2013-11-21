@@ -32,6 +32,7 @@ public class PictureAction extends ActionSupport implements ModelDriven<Picture>
 	private Integer[] delid;	//一组id
 	private PhotoFile photoFile;	//上传类
 	private String photoNoDelete;	//从服务器传来判断是否删除了图片
+	private String uploadCategoryName;   //存放图片的路径目录
 	
 	/**
 	 * 列表分页查询
@@ -131,12 +132,22 @@ public class PictureAction extends ActionSupport implements ModelDriven<Picture>
 			ActionUtil.setURL("picture_list.action");
 			return ActionUtil.REDIRECT;
 		}
-		Calendar calendar = Calendar.getInstance();
-		String timestamp = calendar.get(Calendar.YEAR) + "/" + (calendar.get(Calendar.MONTH)+1);
 		
-		String uploadUrl2="uploadFile/picture/" + "upload/" + timestamp+"/";
-		
-		String uploadUrl = ServletActionContext.getServletContext().getRealPath("/") + uploadUrl2;
+		String cid=picture.getCategoryid();
+		int i=Integer.valueOf(cid).intValue();
+		if(i==1){
+			uploadCategoryName="Category1";
+		}else if(i==2){
+			uploadCategoryName="Category2";
+		}else{
+			uploadCategoryName="upload";
+		}
+	
+	Calendar calendar = Calendar.getInstance();
+	String timestamp = calendar.get(Calendar.YEAR) + "/" + (calendar.get(Calendar.MONTH)+1);
+	
+	String uploadUrl2="uploadFile/picture/" +uploadCategoryName+ "/" + timestamp+"/";
+	String uploadUrl = ServletActionContext.getServletContext().getRealPath("/") + uploadUrl2;
 		
 		File fl=new File(uploadUrl);
 		if(!fl.exists()){
@@ -158,10 +169,20 @@ public class PictureAction extends ActionSupport implements ModelDriven<Picture>
 		}else {
 			
 		
-		Calendar calendar = Calendar.getInstance();
-		String timestamp = calendar.get(Calendar.YEAR) + "/" + (calendar.get(Calendar.MONTH)+1);
-		
-		String uploadUrl2="uploadFile/picture/" + "upload/" + timestamp+"/";
+			String cid=picture.getCategoryid();
+			int i=Integer.valueOf(cid).intValue();
+			if(i==1){
+				uploadCategoryName="Category1";
+			}else if(i==2){
+				uploadCategoryName="Category2";
+			}else{
+				uploadCategoryName="upload";
+			}
+			
+			Calendar calendar = Calendar.getInstance();
+			String timestamp = calendar.get(Calendar.YEAR) + "/" + (calendar.get(Calendar.MONTH)+1);
+			
+			String uploadUrl2="uploadFile/picture/" + uploadCategoryName + "/" + timestamp+"/";
 		String uploadUrl = ServletActionContext.getServletContext().getRealPath("/") + uploadUrl2;
 		
 		File fl=new File(uploadUrl);
@@ -202,8 +223,10 @@ public class PictureAction extends ActionSupport implements ModelDriven<Picture>
 		Picture n = this.pictureService.load(picture.getId());
 		picture.setId(n.getId());
 		picture.setTitle(n.getTitle());
-		picture.setAuthor(n.getAuthor());
 		picture.setTpicture(n.getTpicture());
+		picture.setAuthor(n.getAuthor());
+		picture.setCategoryid(n.getCategoryid());
+		picture.setTtop(n.getTtop());
 		return SUCCESS;
 	}
 	
@@ -227,10 +250,20 @@ public class PictureAction extends ActionSupport implements ModelDriven<Picture>
 			return ActionUtil.REDIRECT;
 		}
 		
+		String cid=picture.getCategoryid();
+		int i=Integer.valueOf(cid).intValue();
+		if(i==1){
+			uploadCategoryName="Category1";
+		}else if(i==2){
+			uploadCategoryName="Category2";
+		}else{
+			uploadCategoryName="upload";
+		}
+		
 		Calendar calendar = Calendar.getInstance();
 		String timestamp = calendar.get(Calendar.YEAR) + "/" + (calendar.get(Calendar.MONTH)+1);
 		
-		String uploadUrl2="uploadFile/picture/" + "upload/" + timestamp+"/";
+		String uploadUrl2="uploadFile/picture/" + uploadCategoryName + "/" + timestamp+"/";
 		System.out.println(uploadUrl2);
 		String uploadUrl = ServletActionContext.getServletContext().getRealPath("/") + uploadUrl2;
 		

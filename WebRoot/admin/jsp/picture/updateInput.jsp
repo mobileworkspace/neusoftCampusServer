@@ -116,6 +116,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <tr> 
     <td>推荐级别：</td>
   	<td colspan="2">
+  	
+  	<!-- 
             <select  name="ttop" id="ittop" >
               <option value="1" selected="selected">级别1</option>
               <option value="2">级别2</option>
@@ -128,16 +130,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <option value="9">级别9</option>
               <option value="10">级别10</option>
             </select>
-  	<span id="s_ititle" style=" font-size:14px; color:#C90 ; font-family:'微软雅黑'" >------级别越高文章排序越靠前!</span>
+      -->
+          
+<s:select list="#{1:'级别1',2:'级别2',3:'级别3',4:'级别4',5:'级别5',6:'级别6',7:'级别7',8:'级别8',9:'级别9',10:'级别10'}" 
+			name="ttop" id="ittop" theme="simple" listKey="key" listValue="value"    
+             value="#request.ttop"></s:select>        
+
+  	<span id="s_ititle" style=" font-size:14px; color:#C90 ; font-family:'微软雅黑'" >------级别越高文章排序越靠前!修改之前的推荐级别是<span style=" font-size:18px; color:#CCC"> ${ttop} </span>级别的!</span>
   	</td>
   </tr>
   <tr> 
     <td>分类栏目：</td>
   	<td colspan="2">
+  	
+  	<!-- 
 	  	<select  name="categoryid" id="icategoryid" >
               <option value="1" selected="selected">校园环境</option>
               <option value="2">校园图片</option>
             </select>
+     -->
+       
+    <s:select list="#{1:'校园环境',2:'校园图片'}" name="categoryid" theme="simple" listKey="key" listValue="value" value="#request.categoryid"></s:select> 
   	<span id="s_ititle" style=" font-size:14px; color:#C90 ; font-family:'微软雅黑'" >------图片的类别!</span>
   	</td>
   </tr>

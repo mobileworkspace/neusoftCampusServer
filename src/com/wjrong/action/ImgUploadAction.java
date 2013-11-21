@@ -16,7 +16,7 @@ import com.wjrong.util.ActionUtil;
 /**
  * 图片(后台)
  * @author wjrong
- * @data 2013-10-20
+ * @data 2013-10-24
  *
  */
 @SuppressWarnings("serial")
@@ -40,7 +40,7 @@ public class ImgUploadAction extends ActionSupport implements ModelDriven<Pictur
 			return ActionUtil.REDIRECT;
 		}
 		Calendar calendar = Calendar.getInstance();
-		String timestamp = calendar.get(Calendar.YEAR) + "/" + calendar.get(Calendar.MONTH);
+		String timestamp = calendar.get(Calendar.YEAR) + "/" + (calendar.get(Calendar.MONTH)+1);
 		
 		String uploadUrl2="uploadFile/picture/" + "upload/" + timestamp+"/";
 		String uploadUrl = ServletActionContext.getServletContext().getRealPath("/") + uploadUrl2;

@@ -97,13 +97,13 @@ public class PictureServiceImpl implements PictureService {
 		//return this.articleDao.find("select Article,c.name from Article as a,category as c where c.categoryid = a.categoryid order by a.createDate desc");
 		//return this.articleDao.find("from Article a left join a.categoryid c where a.categoryid=1");	//from Student s left join s.course c where s.sname='李晓梅'";
 		//return this.articleDao.find("from Article a,Category c where a.categoryid=1 order by a.createDate desc");
-		return this.pictureDao.find("from Picture n order by n.createDate desc");
+		return this.pictureDao.find("from Picture n order by n.ttop desc, n.clickRate desc, n.id desc");
 		//return this.articleDao.find("select new con.wjrong.model.Artcatall(a.Title,c.Categoryname,a.Id,a.Author) from Article a,Category c where c.Categoryidid=a.Categoryidid");
 	}
 	
 	@Override
 	public Pager<Picture> findPicture(String categoryid) {
-		return this.pictureDao.find("from Picture n where n.categoryid=" + categoryid + " order by n.createDate desc");
+		return this.pictureDao.find("from Picture n where n.categoryid=" + categoryid + " order by n.ttop desc, n.clickRate desc, n.id desc");
 	}
 	
 	@Override
@@ -131,7 +131,7 @@ public class PictureServiceImpl implements PictureService {
 	public List<Picture> queryNumber(int number) {
 		List<Picture> listPicture = new ArrayList<Picture>();
 		String sql = "select id,title " +
-				"from t_picture t ORDER BY t.create_date DESC LIMIT " + number ;
+				"from t_picture t ORDER BY t.ttop desc, t.click_rate desc, t.id desc LIMIT " + number ;
 		
 		List<Object> list = this.pictureDao.querySQL(sql);
 		

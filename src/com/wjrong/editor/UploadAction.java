@@ -18,6 +18,8 @@ import org.apache.struts2.ServletActionContext;
 public class UploadAction extends BaseAction{
 	private File imgFile;
 	
+
+	
 	public void uploadImg(){
 		try {
 			Calendar calendar = Calendar.getInstance();
@@ -25,14 +27,22 @@ public class UploadAction extends BaseAction{
 			SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMdd_HHmmss");
 			Random r=new Random();
 			String path=ServletActionContext.getServletContext().getRealPath("/");
-			String imgName=sdf.format(new Date())+r.nextInt(100)+".jpg";
+			String uploadUrl=path+"uploadFile/article/ContentPhoto/" + timestamp+"/";
+			String imgName="CU"+sdf.format(new Date())+r.nextInt(100)+".jpg";
 		
-			FileUtils.copyFile(imgFile,new File(path+"uploadFile/article/upload/" + timestamp+"/"+imgName));
+			File fl=new File(uploadUrl);
+			if(!fl.exists()){
+				//如果没有目录就建目录
+				fl.mkdirs();
+			}
+			
+			FileUtils.copyFile(imgFile,new File(uploadUrl+imgName));
 			
 			//向kindeditor返回json格式图片路径
 			String outPath=ServletActionContext.getRequest().getScheme()+"://"+ServletActionContext.getRequest().getServerName()+":"+ServletActionContext.getRequest().getServerPort()+ServletActionContext.getRequest().getContextPath()+"/";
+			//String outPath=path;
 			System.out.println(outPath);
-			String outImageName=outPath+"uploadFile/article/upload/" + timestamp+"/"+imgName;
+			String outImageName=outPath+"uploadFile/article/ContentPhoto/" + timestamp+"/"+imgName;
 			String returnUrl="{\"error\":0,\"url\":\""+outImageName+"\"}";
 			System.out.println(returnUrl);
 			ServletActionContext.getResponse().getWriter().print(returnUrl);

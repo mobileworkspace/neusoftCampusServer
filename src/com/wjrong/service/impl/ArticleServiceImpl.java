@@ -85,7 +85,7 @@ public class ArticleServiceImpl implements ArticleService {
 		//return this.articleDao.find("select Article,c.name from Article as a,category as c where c.categoryid = a.categoryid order by a.createDate desc");
 		//return this.articleDao.find("from Article a left join a.categoryid c where a.categoryid=1");	//from Student s left join s.course c where s.sname='李晓梅'";
 		//return this.articleDao.find("from Article a,Category c where a.categoryid=1 order by a.createDate desc");
-		return this.articleDao.find("from Article n order by n.createDate desc");
+		return this.articleDao.find("from Article n order by n.ttop desc, n.clickRate desc, n.id desc");
 		//return this.articleDao.find("select new con.wjrong.model.Artcatall(a.Title,c.Categoryname,a.Id,a.Author) from Article a,Category c where c.Categoryidid=a.Categoryidid");
 	}
 	
@@ -94,13 +94,13 @@ public class ArticleServiceImpl implements ArticleService {
 		//return this.articleDao.find("select Article,c.name from Article as a,category as c where c.categoryid = a.categoryid order by a.createDate desc");
 		//return this.articleDao.find("from Article a left join a.categoryid c where a.categoryid=1");	//from Student s left join s.course c where s.sname='李晓梅'";
 		//return this.articleDao.find("from Article a,Category c where a.categoryid=1 order by a.createDate desc");
-		return this.articleDao.find("from Article n where n.categoryid=2 AND n.tpicture IS NOT NULL ORDER BY n.createDate DESC LIMIT 5");
+		return this.articleDao.find("from Article n where n.categoryid=2 AND n.tpicture IS NOT NULL ORDER BY n.ttop desc, n.clickRate desc, n.clickRate, n.id desc LIMIT 5");
 		//return this.articleDao.find("select new con.wjrong.model.Artcatall(a.Title,c.Categoryname,a.Id,a.Author) from Article a,Category c where c.Categoryidid=a.Categoryidid");
 	}
 	
 	@Override
 	public Pager<Article> findArticle(String categoryid) {
-		return this.articleDao.find("from Article n where n.categoryid=" + categoryid + " order by n.createDate desc");
+		return this.articleDao.find("from Article n where n.categoryid=" + categoryid + " order by n.ttop desc, n.clickRate desc, n.id desc");
 	}
 	
 	@Override
@@ -128,7 +128,7 @@ public class ArticleServiceImpl implements ArticleService {
 	public List<Article> queryNumber(int number) {
 		List<Article> listArticle = new ArrayList<Article>();
 		String sql = "select id,title " +
-				"from t_article t ORDER BY t.create_date DESC LIMIT " + number ;
+				"from t_article t ORDER BY t.ttop desc, t.click_rate desc, t.id desc LIMIT " + number ;
 		
 		List<Object> list = this.articleDao.querySQL(sql);
 		
@@ -146,9 +146,9 @@ public class ArticleServiceImpl implements ArticleService {
 	@Override
 	public Pager<Article> findArticlePictureNoNull(String categoryid) {
 		if("All".equals(categoryid)){
-		return this.articleDao.find("from Article n where n.tpicture IS NOT NULL ORDER BY n.createDate DESC");
+		return this.articleDao.find("from Article n where n.tpicture IS NOT NULL ORDER BY n.ttop desc, n.clickRate desc, n.id desc");
 		}
 		
-		return this.articleDao.find("from Article n where n.categoryid="+categoryid+" AND n.tpicture IS NOT NULL ORDER BY n.createDate DESC");
+		return this.articleDao.find("from Article n where n.categoryid="+categoryid+" AND n.tpicture IS NOT NULL ORDER BY n.ttop desc, n.clickRate desc, n.id desc");
 	}
 }

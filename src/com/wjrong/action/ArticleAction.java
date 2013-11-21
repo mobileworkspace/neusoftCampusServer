@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.annotation.Resource;
 
 import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.components.If;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -32,6 +33,10 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	private Integer[] delid;	//一组id
 	private PhotoFile photoFile;	//上传类
 	private String photoNoDelete;	//从服务器传来判断是否删除了图片
+	private String uploadCategoryName;   //存放图片的路径目录
+	
+
+
 	
 	/**
 	 * 分页查询
@@ -359,10 +364,41 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 			ActionUtil.setURL("article_list.action");
 			return ActionUtil.REDIRECT;
 		}
+		
+		String cid=article.getCategoryid();
+			int i=Integer.valueOf(cid).intValue();
+			if(i==1){
+				uploadCategoryName="Category1";
+			}else if(i==2){
+				uploadCategoryName="Category2";
+			}else if(i==3){
+				uploadCategoryName="Category3";
+			}else if(i==4){
+				uploadCategoryName="Category4";
+			}else if(i==5){
+				uploadCategoryName="Category5";
+			}else if(i==6){
+				uploadCategoryName="Category6";
+			}else if(i==7){
+				uploadCategoryName="Category7";
+			}else if(i==8){
+				uploadCategoryName="Category8";
+			}else if(i==9){
+				uploadCategoryName="Category9";
+			}else if(i==10){
+				uploadCategoryName="Category10";
+			}else if(i==11){
+				uploadCategoryName="Category11";
+			}else if(i==12){
+				uploadCategoryName="Category12";
+			}else{
+				uploadCategoryName="upload";
+			}
+		
 		Calendar calendar = Calendar.getInstance();
 		String timestamp = calendar.get(Calendar.YEAR) + "/" + (calendar.get(Calendar.MONTH)+1);
 		
-		String uploadUrl2="uploadFile/article/" + "upload/" + timestamp+"/";
+		String uploadUrl2="uploadFile/article/" +uploadCategoryName+ "/" + timestamp+"/";
 		String uploadUrl = ServletActionContext.getServletContext().getRealPath("/") + uploadUrl2;
 		
 		File fl=new File(uploadUrl);
@@ -404,6 +440,9 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		article.setContent(n.getContent());
 		article.setTpicture(n.getTpicture());
 		article.setIntro(n.getIntro());
+		article.setCategoryid(n.getCategoryid());
+		article.setTtop(n.getTtop());
+		
 		return SUCCESS;
 	}
 	
@@ -428,10 +467,73 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 			ActionUtil.setURL("article_list.action");
 			return ActionUtil.REDIRECT;
 		}
+		
+		
+		String cid=article.getCategoryid();
+		int i=Integer.valueOf(cid).intValue();
+		if(i==1){
+			uploadCategoryName="Category1";
+		}else if(i==2){
+			uploadCategoryName="Category2";
+		}else if(i==3){
+			uploadCategoryName="Category3";
+		}else if(i==4){
+			uploadCategoryName="Category4";
+		}else if(i==5){
+			uploadCategoryName="Category5";
+		}else if(i==6){
+			uploadCategoryName="Category6";
+		}else if(i==7){
+			uploadCategoryName="Category7";
+		}else if(i==8){
+			uploadCategoryName="Category8";
+		}else if(i==9){
+			uploadCategoryName="Category9";
+		}else if(i==10){
+			uploadCategoryName="Category10";
+		}else if(i==11){
+			uploadCategoryName="Category11";
+		}else if(i==12){
+			uploadCategoryName="Category12";
+		}else{
+			uploadCategoryName="upload";
+		}
+		
+		/*
+		if(i==1){
+			uploadCategoryName="新闻联播";
+		}else if(i==2){
+			uploadCategoryName="图片联播";
+		}else if(i==3){
+			uploadCategoryName="校园服务";
+		}else if(i==4){
+			uploadCategoryName="奖学金";
+		}else if(i==5){
+			uploadCategoryName="就业服务";
+		}else if(i==6){
+			uploadCategoryName="媒体聚焦";
+		}else if(i==7){
+			uploadCategoryName="科研团队";
+		}else if(i==8){
+			uploadCategoryName="职位空缺";
+		}else if(i==9){
+			uploadCategoryName="校企合作";
+		}else if(i==10){
+			uploadCategoryName="科研成果";
+		}else if(i==11){
+			uploadCategoryName="集团快讯";
+		}else if(i==12){
+			uploadCategoryName="专业介绍";
+		}else{
+			uploadCategoryName="upload";
+		}
+		*/
+		
+
 		Calendar calendar = Calendar.getInstance();
 		String timestamp = calendar.get(Calendar.YEAR) + "/" + (calendar.get(Calendar.MONTH)+1);
 		
-		String uploadUrl2="uploadFile/article/" + "upload/" + timestamp+"/";
+		String uploadUrl2="uploadFile/article/" + uploadCategoryName + "/" + timestamp+"/";
 		String uploadUrl = ServletActionContext.getServletContext().getRealPath("/") + uploadUrl2;
 		
 		File fl=new File(uploadUrl);
@@ -458,6 +560,8 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		article.setCategoryid(n.getCategoryid());
 		article.setTtop(n.getTtop());
 		article.setIntro(n.getIntro());
+		article.setClickRate(n.getClickRate());
+
 		
 		return SUCCESS;
 	}

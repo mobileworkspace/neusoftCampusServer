@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@taglib uri= "http://java.sun.com/jsp/jstl/core" prefix= "c" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -117,6 +118,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <tr> 
     <td>推荐级别：</td>
   	<td colspan="2">
+  	
+  	<!-- 
             <select  name="ttop" id="ittop" >
               <option value="1" selected="selected">级别1</option>
               <option value="2">级别2</option>
@@ -129,14 +132,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <option value="9">级别9</option>
               <option value="10">级别10</option>
             </select>
-  	<span id="s_ititle" style=" font-size:14px; color:#C90 ; font-family:'微软雅黑'" >------级别越高文章排序越靠前!</span>
+      -->
+          
+<s:select list="#{1:'级别1',2:'级别2',3:'级别3',4:'级别4',5:'级别5',6:'级别6',7:'级别7',8:'级别8',9:'级别9',10:'级别10'}" 
+			name="ttop" id="ittop" theme="simple" listKey="key" listValue="value"    
+             value="#request.ttop"></s:select>        
+
+  	<span id="s_ititle" style=" font-size:14px; color:#C90 ; font-family:'微软雅黑'" >------级别越高文章排序越靠前!修改之前的推荐级别是<span style=" font-size:18px; color:#CCC"> ${ttop} </span>级别的!</span>
   	</td>
   </tr>
   <tr> 
     <td>分类栏目：</td>
   	<td colspan="2">
-	  	<select  name="categoryid" id="icategoryid" >
-              <option value="1" selected="selected">综合新闻</option>
+	 <!--  	<select  name="categoryid" id="icategoryid" >
+
+              <option value="1">综合新闻</option>
               <option value="2">图片联播</option>
               <option value="3">校园服务</option>
               <option value="4">奖学金</option>
@@ -146,11 +156,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <option value="8">职位空缺</option>
               <option value="9">校企合作</option>
               <option value="10">科研成果</option>
-              <option value="11">校园环境</option>
+              <option value="11">集团快讯</option>
               <option value="12">专业介绍</option>
-              <option value="13">集团快讯</option>
             </select>
-  	<span id="s_ititle" style=" font-size:14px; color:#C90 ; font-family:'微软雅黑'" >------文章的类别!</span>
+       -->
+       
+<s:select list="#{1:'综合新闻',2:'图片联播',3:'校园服务',4:'奖学金',5:'就业服务',6:'媒体聚焦',7:'科研团队',8:'职位空缺',9:'校企合作',10:'科研成果',11:'集团快讯',12:'专业介绍'}" 
+			name="categoryid" theme="simple" listKey="key" listValue="value"    
+             value="#request.categoryid"></s:select> 
+  	<span id="s_ititle" style=" font-size:14px; color:#C90 ; font-family:'微软雅黑'" >------文章的类别!修改之前是在第<span style=" font-size:18px; color:#CCC"> ${categoryid} </span>类别的!</span>
   	</td>
   </tr>
   <tr>

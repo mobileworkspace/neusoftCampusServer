@@ -7,7 +7,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Random;
 import java.util.UUID;
+
+import org.apache.struts2.ServletActionContext;
 
 public class FileUpLoadUtil {
 	private FileUpLoadUtil(){}
@@ -17,7 +23,12 @@ public class FileUpLoadUtil {
 	}
 	
 	public static String updateFileName(String oldName){
-		return UUID.randomUUID().toString() + "." + getFileExt(oldName);
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMdd_HHmmss");
+		Random r=new Random();
+		String imgName="SU"+sdf.format(new Date())+r.nextInt(100)+ "."+ getFileExt(oldName);
+		return imgName;
+		
+		//return UUID.randomUUID().toString() + "." + getFileExt(oldName);
 	}
 	
 	@SuppressWarnings("resource")
